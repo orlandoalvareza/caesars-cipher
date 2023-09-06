@@ -1,23 +1,22 @@
-function rot13(str) {
-    let newCode = 0;
-    let arr = [];
-  
-    for(let i = 0; i < str.length; i++) {
-      let code = str.charCodeAt(i);
-  
-      if(code <= 77 && code >= 65) {
-        newCode = code + 13;
-      } else if(code > 77 && code <= 90){
-        newCode = code - 13;
-      } else {
-        newCode = code;
-      }
-  
-      arr.push(String.fromCharCode(newCode));
+function caesarsCipher(textToEncrypt) {
+  const cipherArr = [];
+  let codeToEncrypt = 0;
+
+  for(let i = 0; i < textToEncrypt.length; i++) {
+    let code = textToEncrypt.charCodeAt(i);
+
+    if (code <= 77 && code >= 65) {
+      codeToEncrypt = code + 13;
+    } else if (code > 77 && code <= 90){
+      codeToEncrypt = code - 13;
+    } else {
+      codeToEncrypt = code;
     }
-  
-    let newStr = arr.join('');
-    return newStr;
+
+    cipherArr.push(String.fromCharCode(codeToEncrypt));
   }
-  
-  rot13("SERR CVMMN!");
+
+  return cipherArr.join('');
+}
+
+caesarsCipher("SERR CVMMN!");
